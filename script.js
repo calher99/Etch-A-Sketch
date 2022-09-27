@@ -1,3 +1,4 @@
+
 //Initialization
 
 const divContainer = document.querySelector('.container');
@@ -15,14 +16,12 @@ const squares= getSquares();
 
 
 const pixelSize = nsquares => 640/nsquares;
-
+const size= pixelSize(squares);
 
 
 for (let i=0 ; i < (squares*squares) ; i++){
     let newDiv= document.createElement('div');
-    newDiv.classList.add('square');
-    newDiv.style.width = pixelSize(squares);
-    newDiv.style.height = pixelSize(squares);
+    newDiv.setAttribute("style" , `width: ${size}px ; height:${size}px`);
     divContainer.appendChild(newDiv);
 }
 
