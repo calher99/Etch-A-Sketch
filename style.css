@@ -1,0 +1,23 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.square {
+    height: 12.8px;
+    width: 12.8px;
+    background-color: blanchedalmond;
+}
+
+.container {
+    display:flex;
+    max-width: 640px;
+    flex-wrap: wrap;
+    border: grey solid 1px;
+}
+
+.hovered {
+    background-color: black;
+    height: 12.8px;
+    width: 12.8px;
+}
