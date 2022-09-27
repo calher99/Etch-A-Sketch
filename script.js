@@ -21,6 +21,7 @@ const size= pixelSize(squares);
 
 for (let i=0 ; i < (squares*squares) ; i++){
     let newDiv= document.createElement('div');
+    newDiv.classList.add('square');
     newDiv.setAttribute("style" , `width: ${size}px ; height:${size}px`);
     divContainer.appendChild(newDiv);
 }
