@@ -21,7 +21,19 @@ function setBoard (size , nsquares){
     
 }
 
+// erase styles
 
+function eraseBoard (){
+    const divContainer= document.querySelectorAll('.container div')
+    console.log(divContainer);
+    divContainer.forEach(pixel => pixel.removeAttribute("style"));
+    //To erase better I should have used something like:
+    /*
+    while (divContainer.firstChild) {
+        divContainer.removeChild(divContainer.lastChild);
+        }
+    */
+}
 //Hovering effect
 
 function hoverPixel(){
@@ -40,12 +52,30 @@ function changeColor (e){
 
 const divStart = document.querySelector('.start');
 divStart.addEventListener('click', runGame);
-
+const divEnd = document.querySelector('.end');
+divEnd.addEventListener('click', eraseBoard);
 //Run program
-function runGame (clear){
+function runGame (){
     const squares= getSquares();
     let pixelSize = nsquares => 640/nsquares;
     setBoard(pixelSize(squares), squares);
     hoverPixel();
 }
 
+/*
+const divContainer = document.querySelector('.container');
+let newDiv= document.createElement('div');
+newDiv.classList.add('test');
+newDiv.setAttribute("style" , `width: 20px ; height:20px`);
+divContainer.appendChild(newDiv);
+
+const divStart = document.querySelector('.start');
+divStart.addEventListener('click', eraseStyle);
+
+function eraseStyle () {
+    console.log(`hello`);
+    const divErase = document.querySelector('.test');
+    divErase.removeAttribute("style");
+}
+
+*/
