@@ -10,9 +10,9 @@ function getSquares (){
     return squares;
 }
 
-function setBoard (size){
+function setBoard (size , nsquares){
     const divContainer = document.querySelector('.container');
-    for (let i=0 ; i < (squares*squares) ; i++){
+    for (let i=0 ; i < (nsquares*nsquares) ; i++){
         let newDiv= document.createElement('div');
         newDiv.classList.add('square');
         newDiv.setAttribute("style" , `width: ${size}px ; height:${size}px`);
@@ -36,9 +36,16 @@ function changeColor (e){
     e.target.classList.value = "hovered";
 };
 
-//Run program
+//Start game
 
-const squares= getSquares();
-const pixelSize = nsquares => 640/nsquares;
-setBoard(pixelSize(squares));
-hoverPixel();
+const divStart = document.querySelector('.start');
+divStart.addEventListener('click', runGame);
+
+//Run program
+function runGame (clear){
+    const squares= getSquares();
+    let pixelSize = nsquares => 640/nsquares;
+    setBoard(pixelSize(squares), squares);
+    hoverPixel();
+}
+
